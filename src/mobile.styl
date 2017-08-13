@@ -1,0 +1,187 @@
+mix-screen(min, max) {
+  @media screen and (min-width: min) and (max-width: max) {
+  {block}
+}
+
+}
+
+max-screen(max) {
+  @media screen and (max-width: max) {
+  {block}
+}
+
+}
+
+min-screen(min) {
+  @media screen and (min-width: min) {
+  {block}
+}
+
+}
+screen-height(min, max) {
+  @media screen and (min-height: min) and (max-height: max) {
+  {block}
+}
+
+}
+
+max-screen-height(max) {
+  @media screen and (max-height: max) {
+  {block}
+}
+
+}
+
+min-screen-height(min) {
+  @media screen and (min-height: min) {
+  {block}
+}
+
+}
+
+
+
+mobile(deviceMinWidth,deviceMaxWidth,devicePixelRatio,deviceAspectRatio,orientation = all){
+  if(orientation == all) {
+@media only screen and (min-device-width: deviceMinWidth) and (max-device-width: deviceMaxWidth) and (-webkit-device-pixel-ratio: devicePixelRatio) and (device-aspect-ratio: deviceAspectRatio) {
+{block}
+}
+} else {
+@media only screen and (min-device-width: deviceMinWidth) and (max-device-width: deviceMaxWidth) and (-webkit-device-pixel-ratio: devicePixelRatio) and (device-aspect-ratio: deviceAspectRatio) and (orientation: orientation) {
+{block}
+}
+}
+}
+
+iphone4(orientation = all){
+  +mobile(320px,480px,2,unquote('2/3'),orientation){
+    {block}
+  }
+}
+
+iphone5(orientation = all){
+  +mobile(320px,568px,2,unquote('40/71'),orientation){
+    {block}
+  }
+}
+
+iphone6(orientation = all){
+  +mobile(375px,667px,2,unquote('375/667'),orientation){
+    {block}
+  }
+}
+
+//{}
+iphone6-plus(orientation = all){
+  +mobile(414px,736px,3,unquote('207/368'),orientation){
+    {block}
+  }
+}
+//{}
+iphone7(orientation = all){
+  +mobile(375px,667px,2,unquote('375/667'),orientation){
+    {block}
+  }
+}
+
+iphone7-plus(orientation = all){
+  +mobile(414px,736px,3,unquote('207/368'),orientation){
+    {block}
+  }
+}
+
+android-720(orientation = all){
+  +mobile(360px,640px,2,unquote('2/3'),orientation){
+    {block}
+  }
+}
+
+
+android-1080(orientation = all){
+  +mobile(360px,640px,3,unquote('9/16'),orientation){
+    {block}
+  }
+  +mobile(412px,732px,2.6,unquote('103/183'),orientation){
+    {block}
+  }
+}
+
+android-2k(orientation = all){
+  +mobile(360px,640px,4,unquote('9/16'),orientation){
+    {block}
+  }
+  +mobile(412px,732px,3.5,unquote('103/183'),orientation){
+    {block}
+  }
+}
+
+
+
+
+//判断是否为手机屏幕
+isMobile(orientation = all){
+  +android-720(orientation){
+    {block}
+  }
+  +android-1080(orientation){
+    {block}
+  }
+  +android-2k(orientation){
+    {block}
+  }
+  +iphone4(orientation){
+    {block}
+  }
+  +iphone5(orientation){
+    {block}
+  }
+  +iphone6(orientation){
+    {block}
+  }
+  +iphone6-plus(orientation){
+    {block}
+  }
+  +iphone7(orientation){
+    {block}
+  }
+  +iphone7-plus(orientation){
+    {block}
+  }
+}
+
+
+
+//+isMobile(){
+//  body {
+//      background blue
+//  }
+//}
+//
+//+iphone4(){
+//  body {
+//    background blue
+//  }
+//}
+//
+//+iphone6(){
+//  body {
+//    background green
+//  }
+//}
+//+iphone6-plus(){
+//  body {
+//    background gold
+//  }
+//}
+//
+//+android-1080(){
+//  body {
+//    background purple
+//  }
+//}
+//+android-2k(){
+//  body {
+//    background red
+//  }
+//}
+
